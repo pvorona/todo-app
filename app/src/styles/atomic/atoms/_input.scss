@@ -1,0 +1,21 @@
+@import '../../colors';
+@import '../../sizes';
+
+$input: 'input:not([type=submit])';
+
+#{$input} {
+  padding: 11px 10px;
+  border: none;
+  border-radius: $border-radius-default;
+  background-color: $input-primary-bg;
+}
+
+#{$input}:focus {
+  outline: none;
+  background-color: #ffffff;
+  border: solid 1px $input-primary-focused-border;
+}
+
+#{$input}[disabled] {
+  background-color: $input-primary-bg-disabled;
+}

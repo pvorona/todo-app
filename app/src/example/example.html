@@ -1,9 +1,9 @@
 <form name="newTodoForm" ng-submit="newTodoForm.$valid && $ctrl.createTodo($ctrl.todo)" novalidate>
-  <input ng-model="$ctrl.todo.title" autofocus required>
+  <input ng-model="$ctrl.todo.title" autofocus required class="todo-new" placeholder="What needs to be done?">
 </form>
-<ul>
+<ul class="todo-list">
   <li ng-repeat="todo in $ctrl.todos track by $index">
-    <input ng-model="todo.title" ng-blur="editTodoForm.$valid && $ctrl.editTodo($index)" required/>
-    <button ng-click="$ctrl.removeTodo($index)">X</button>
+    <input ng-model="todo.title" class="todo-list__item"/>
+    <button ng-click="$ctrl.removeTodo($index)" class="todo-list__item-remove">X</button>
   </li>
 </ul>

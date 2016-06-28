@@ -1,8 +1,58 @@
-.example_container {
-  background: red;
+$input-primary-bg: #eeeeee;
+$input-primary-bg-disabled: #f7f7f7;
+$input-primary-focused-border: #544172;
+
+$input: '.todo-new, .todo-list__item';
+
+#{$input} {
+  width: 750px;
+  padding: 11px 10px;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: $input-primary-bg;
+  font-size: 16px;
+  will-change: contents, background-color, box-shadow;
+
+  &:focus {
+    outline: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 1px $input-primary-focused-border inset;
+  }
+
+  &[disabled] {
+    background-color: $input-primary-bg-disabled;
+  }
 }
 
-.example_message {
-  display: flex;
-  font-size: 40px;
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list__item {
+  animation: new-todo .5s;
+}
+
+.todo-list__item:hover + .todo-list__item-remove {
+  visibility: visible;
+}
+
+.todo-list__item-remove {
+  visibility: hidden;
+  position: relative;
+  outline: none;
+  right: 40px;
+  border: none;
+  background: none;
+  font-size: 15px;
+}
+
+@keyframes new-todo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

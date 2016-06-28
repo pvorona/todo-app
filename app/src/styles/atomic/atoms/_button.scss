@@ -1,0 +1,28 @@
+@import '../../colors';
+@import '../../sizes';
+@import '../../typography';
+
+$btn: 'input[type="submit"]';
+
+#{$btn} {
+  width: 140px;
+  height: 40px;
+  border: none;
+  font-size: $font-size-primary;
+  border-radius: $border-radius-default;
+  color: $btn-primary;
+  background-color: $btn-primary-bg;
+}
+
+#{$btn}:hover {
+  background-color: $btn-primary-bg-hover;
+}
+
+#{$btn}:active, #{$btn}:focus {
+  background-color: $btn-primary-bg-active;
+}
+
+#{$btn}[disabled] {
+  background-color: $btn-primary-bg-disabled;
+  color: $btn-primary-disabled;
+}
