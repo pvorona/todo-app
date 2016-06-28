@@ -1,9 +1,13 @@
 <form name="newTodoForm" ng-submit="newTodoForm.$valid && $ctrl.createTodo($ctrl.todo)" novalidate>
-  <input ng-model="$ctrl.todo.title" autofocus required class="todo-new" placeholder="What needs to be done?">
+  <input ng-model="$ctrl.todo.title" ng-keydown="$ctrl.isClearingKey($event.keyCode) && $ctrl.clearInput()" autofocus required class="todo-new" placeholder="What needs to be done?">
+  <div ng-click="$ctrl.clearInput()" class="todo-new__clear">X</div>
 </form>
 <ul class="todo-list">
-  <li ng-repeat="todo in $ctrl.todos track by $index">
-    <input ng-model="todo.title" class="todo-list__item"/>
-    <button ng-click="$ctrl.removeTodo($index)" class="todo-list__item-remove">X</button>
+  <li ng-repeat="todo in $ctrl.todos track by $index" class="todo-list__item">
+    <form name="editTodoForm" ng-submit="$ctrl.saveTodo($index)">
+      <div ng-click="$ctrl.toggleCompleted(todo)" class="todo-list__item-toggle"></div>
+      <input ng-model="todo.title" ng-keydown="$ctrl.saveTodo($index)" ng-blur="$ctrl.saveTodo($index)" ng-disabled="todo.completed" class="todo-list__item-input"/>
+      <div ng-click="$ctrl.removeTodo($index)" class="todo-list__item-remove">X</div>
+    </form>
   </li>
 </ul>

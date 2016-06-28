@@ -3,6 +3,6 @@
     "color-no-invalid-hex": true,
     "indentation": 2,
     "max-empty-lines": 1,
-    "unit-whitelist": ["px", "em", "rem", "%", "s"]
+    "unit-whitelist": ["px", "em", "rem", "%", "s", "vh"]
   }
 }

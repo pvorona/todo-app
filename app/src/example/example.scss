@@ -2,9 +2,7 @@ $input-primary-bg: #eeeeee;
 $input-primary-bg-disabled: #f7f7f7;
 $input-primary-focused-border: #544172;
 
-$input: '.todo-new, .todo-list__item';
-
-#{$input} {
+.todo-new, .todo-list__item-input {
   width: 750px;
   padding: 11px 10px;
   border: none;
@@ -12,7 +10,7 @@ $input: '.todo-new, .todo-list__item';
   border-radius: 4px;
   background-color: $input-primary-bg;
   font-size: 16px;
-  will-change: contents, background-color, box-shadow;
+  will-change: contents;
 
   &:focus {
     outline: none;
@@ -23,29 +21,55 @@ $input: '.todo-new, .todo-list__item';
   &[disabled] {
     background-color: $input-primary-bg-disabled;
   }
+
+  &__clear {
+    display: inline-block;
+    visibility: hidden;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    right: 40px;
+    border: none;
+    background: none;
+    font-size: 15px;
+  }
+
+  &:not(:placeholder-shown) + &__clear {
+    visibility: visible;
+  }
 }
 
 .todo-list {
   list-style: none;
   padding: 0;
+
+  &__item {
+    animation: new-todo .5s;
+    margin: 5px 0;
+  }
+
+  &__item-toggle {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: red;
+  }
+
+  &__item-remove {
+    display: inline-block;
+    visibility: hidden;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    right: 40px;
+    border: none;
+    background: none;
+    font-size: 15px;
+  }
 }
 
-.todo-list__item {
-  animation: new-todo .5s;
-}
-
-.todo-list__item:hover + .todo-list__item-remove {
+.todo-list__item:hover .todo-list__item-remove {
   visibility: visible;
-}
-
-.todo-list__item-remove {
-  visibility: hidden;
-  position: relative;
-  outline: none;
-  right: 40px;
-  border: none;
-  background: none;
-  font-size: 15px;
 }
 
 @keyframes new-todo {

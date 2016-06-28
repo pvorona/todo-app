@@ -1,8 +1,8 @@
-@import './atomic/organisms/header-nav';
-@import './atomic/atoms/button';
-@import './atomic/atoms/link';
-@import './atomic/atoms/input';
-@import './atomic/atoms/select';
+.content {
+  display: flex;
+  min-height: 100vh;
+}
 
-body { margin: 0; }
-header { @extend %header-nav; }
+.center {
+  margin: auto;
+}
