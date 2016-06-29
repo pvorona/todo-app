@@ -168,7 +168,7 @@
     "max-nested-callbacks": [2, 3], // specify the maximum depth callbacks can be nested (off by default)
     "new-cap": [2, {"newIsCap": true, "capIsNew": false}], // require a capital letter for constructors
     "new-parens": 2, // disallow the omission of parentheses when invoking a constructor with no arguments
-    "newline-after-var": [2, "always"], // allow/disallow an empty newline after var statement (off by default)
+    # "newline-after-var": [2, "always"], // allow/disallow an empty newline after var statement (off by default)
     "no-array-constructor": 2, // disallow use of the Array constructor
     "no-continue": 2, //disallow use of the continue statement (off by default)
     "no-inline-comments": 2, // disallow comments inline after code (off by default)

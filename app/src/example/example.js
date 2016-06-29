@@ -14,10 +14,14 @@ function controller (storage) {
   Object.assign(vm, {
     createTodo,
     removeTodo,
-    saveTodo,
+    saveTodos,
     toggleCompleted,
+    startEditing,
+    endEditing,
     clearInput,
     isClearingKey,
+    capitalizeFirstLetter,
+    collapseWhitespaces,
     todos: storage.todos
   });
 
@@ -37,7 +41,8 @@ function controller (storage) {
     saveTodos();
   }
 
-  function removeTodo (index) {
+  function removeTodo (todo) {
+    const index = vm.todos.indexOf(todo);
     vm.todos.splice(index, 1);
     saveTodos();
   }
@@ -47,11 +52,16 @@ function controller (storage) {
     saveTodos();
   }
 
-  function saveTodo (index) {
-    if (vm.todos[index].title.length === 0)
-      removeTodo(index);
-    else
-      saveTodos();
+  function startEditing (todo) {
+    todo.editing = true;
+  }
+
+  function endEditing (todo) {
+    if (todo.title.length === 0) {
+      removeTodo(todo);
+    } else {
+      todo.editing = false;
+    }
   }
 
   function isClearingKey (keyCode) {
@@ -59,7 +69,7 @@ function controller (storage) {
   }
 
   function saveTodos () {
-    storage.todos = vm.todos;
+    storage.todos = vm.todos.map(todo => ({title: todo.title, completed: todo.completed}));
   }
 
   function collapseWhitespaces (todo) {

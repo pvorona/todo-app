@@ -14,10 +14,6 @@ $input-primary-focused-border: #544172;
   background-color: $input-primary-bg;
   font-size: 16px;
 
-  &::first-letter {
-    text-transform: uppercase;
-  }
-
   &:focus {
     outline: none;
     background-color: #ffffff;
@@ -81,6 +77,12 @@ $input-primary-focused-border: #544172;
     display: flex;
     flex-direction: row;
     align-items: center;
+    transition: .5s;
+    transition-property: margin;
+
+    &.todo-list__item--editing {
+      margin: 30px 0;
+    }
   }
 
   &__item-toggle {
@@ -102,6 +104,12 @@ $input-primary-focused-border: #544172;
     border: none;
     background: none;
     font-size: 15px;
+    width: 40px;
+    text-align: end;
+
+    &:hover {
+      color: red;
+    }
   }
 }
 
