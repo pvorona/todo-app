@@ -1,5 +1,8 @@
 import './example.scss';
 import template from './example.html';
+import keyCodes from './key-codes';
+import stringUtils from './string-utils';
+import {not} from './decorators';
 
 export default {
   controller,
@@ -66,7 +69,7 @@ function controller (storage) {
   }
 
   function isEmpty (todo) {
-    return todo.title.length === 0;
+    return stringUtils.isEmpty(todo.title);
   }
 
   function isEditing () {
@@ -74,20 +77,20 @@ function controller (storage) {
   }
 
   function isClearingKey (keyCode) {
-    return keyCode === 27;
+    return keyCode === keyCodes.ESC;
   }
 
   function saveTodos () {
     storage.todos = vm.todos
-      .filter(todo => !isEmpty(todo))
+      .filter(not(isEmpty))
       .map(todo => ({title: todo.title, completed: todo.completed}));
   }
 
   function collapseWhitespaces (todo) {
-    todo.title = todo.title.replace(/\s+/g, ' ');
+    todo.title = stringUtils.collapseWhitespaces(todo.title);
   }
 
   function capitalizeFirstLetter (todo) {
-    todo.title = todo.title.charAt(0).toUpperCase() + todo.title.substr(1);
+    todo.title = stringUtils.capitalizeFirstLetter(todo.title);
   }
 }
