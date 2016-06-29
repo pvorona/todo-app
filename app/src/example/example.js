@@ -18,6 +18,7 @@ function controller (storage) {
     toggleCompleted,
     startEditing,
     endEditing,
+    isEditing,
     clearInput,
     isClearingKey,
     capitalizeFirstLetter,
@@ -57,11 +58,19 @@ function controller (storage) {
   }
 
   function endEditing (todo) {
-    if (todo.title.length === 0) {
+    if (isEmpty(todo)) {
       removeTodo(todo);
     } else {
       todo.editing = false;
     }
+  }
+
+  function isEmpty (todo) {
+    return todo.title.length === 0;
+  }
+
+  function isEditing () {
+    return vm.todos.some(todo => todo.editing);
   }
 
   function isClearingKey (keyCode) {
@@ -69,7 +78,9 @@ function controller (storage) {
   }
 
   function saveTodos () {
-    storage.todos = vm.todos.map(todo => ({title: todo.title, completed: todo.completed}));
+    storage.todos = vm.todos
+      .filter(todo => !isEmpty(todo))
+      .map(todo => ({title: todo.title, completed: todo.completed}));
   }
 
   function collapseWhitespaces (todo) {

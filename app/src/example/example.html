@@ -3,7 +3,7 @@
   <div ng-click="$ctrl.clearInput()" class="todo-new__clear">X</div>
 </form>
 
-<ul class="todo-list">
+<ul class="todo-list" ng-class="{'todo-list--editing': $ctrl.isEditing()}">
   <li ng-repeat="todo in $ctrl.todos track by $index">
     <form name="editTodoForm" class="todo-list__item" ng-class="{'todo-list__item--editing': todo.editing}">
       <input ng-click="$ctrl.toggleCompleted(todo)" ng-checked="todo.completed" type="checkbox" class="todo-list__item-toggle" />
