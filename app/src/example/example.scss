@@ -2,8 +2,34 @@ $input-primary-bg: #eeeeee;
 $input-primary-bg-disabled: #f7f7f7;
 $input-primary-focused-border: #544172;
 
-.todo-new, .todo-list__item-input {
+.todo-new {
   width: 750px;
+}
+
+.todo-list__item-input {
+  flex-grow: 1;
+  border-radius: 0 4px 4px 0;
+  padding: 10px 10px;
+  border: none;
+  background-color: $input-primary-bg;
+  font-size: 16px;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 1px $input-primary-focused-border inset;
+  }
+
+  &[disabled] {
+    background-color: $input-primary-bg-disabled;
+  }
+}
+
+.todo-new {
   padding: 11px 10px;
   border: none;
   box-sizing: border-box;
@@ -11,6 +37,10 @@ $input-primary-focused-border: #544172;
   background-color: $input-primary-bg;
   font-size: 16px;
   will-change: contents;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 
   &:focus {
     outline: none;
@@ -44,24 +74,31 @@ $input-primary-focused-border: #544172;
   padding: 0;
 
   &__item {
+    position: relative;
+    width: 750px;
     animation: new-todo .5s;
     margin: 5px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   &__item-toggle {
-    display: inline-block;
-    width: 40px;
+    outline-color: magenta;
+    outline-width: 3px;
+    flex-basis: 40px;
     height: 40px;
-    background: red;
+    margin: 0;
   }
 
   &__item-remove {
     display: inline-block;
     visibility: hidden;
-    position: relative;
+    position: absolute;
     outline: none;
     cursor: pointer;
-    right: 40px;
+    right: 15px;
+    top: 10px;
     border: none;
     background: none;
     font-size: 15px;

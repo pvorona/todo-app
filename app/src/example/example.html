@@ -3,9 +3,9 @@
   <div ng-click="$ctrl.clearInput()" class="todo-new__clear">X</div>
 </form>
 <ul class="todo-list">
-  <li ng-repeat="todo in $ctrl.todos track by $index" class="todo-list__item">
-    <form name="editTodoForm" ng-submit="$ctrl.saveTodo($index)">
-      <div ng-click="$ctrl.toggleCompleted(todo)" class="todo-list__item-toggle"></div>
+  <li ng-repeat="todo in $ctrl.todos track by $index">
+    <form name="editTodoForm" ng-submit="$ctrl.saveTodo($index)" class="todo-list__item">
+      <input ng-click="$ctrl.toggleCompleted(todo)" ng-checked="todo.completed" type="checkbox" class="todo-list__item-toggle"/>
       <input ng-model="todo.title" ng-keydown="$ctrl.saveTodo($index)" ng-blur="$ctrl.saveTodo($index)" ng-disabled="todo.completed" class="todo-list__item-input"/>
       <div ng-click="$ctrl.removeTodo($index)" class="todo-list__item-remove">X</div>
     </form>
