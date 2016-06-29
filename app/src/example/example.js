@@ -22,6 +22,8 @@ function controller (storage) {
   });
 
   function createTodo (todo) {
+    capitalizeFirstLetter(todo);
+    collapseWhitespaces(todo);
     addTodo(todo);
     clearInput();
   }
@@ -58,5 +60,13 @@ function controller (storage) {
 
   function saveTodos () {
     storage.todos = vm.todos;
+  }
+
+  function collapseWhitespaces (todo) {
+    todo.title = todo.title.replace(/\s+/g, ' ');
+  }
+
+  function capitalizeFirstLetter (todo) {
+    todo.title = todo.title.charAt(0).toUpperCase() + todo.title.substr(1);
   }
 }

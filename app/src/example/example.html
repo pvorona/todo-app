@@ -7,6 +7,7 @@
     <form name="editTodoForm" ng-submit="$ctrl.saveTodo($index)" class="todo-list__item">
       <input ng-click="$ctrl.toggleCompleted(todo)" ng-checked="todo.completed" type="checkbox" class="todo-list__item-toggle"/>
       <input ng-model="todo.title" ng-keydown="$ctrl.saveTodo($index)" ng-blur="$ctrl.saveTodo($index)" ng-disabled="todo.completed" class="todo-list__item-input"/>
+      <!-- <div ng-keydown="$ctrl.saveTodo($index)" ng-blur="$ctrl.saveTodo($index)" ng-disabled="todo.completed" class="todo-list__item-input"> {{ todo.title }} </div> -->
       <div ng-click="$ctrl.removeTodo($index)" class="todo-list__item-remove">X</div>
     </form>
   </li>
