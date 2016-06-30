@@ -1,0 +1,56 @@
+$border: #544172;
+
+.todo-new {
+  padding: 11px 60px 11px 15px;
+  text-overflow: ellipsis;
+  width: 750px;
+  border: none;
+  font-size: 22px;
+
+  background: linear-gradient($border, $border), linear-gradient($border, $border), linear-gradient($border, $border);
+  background-position: bottom left, bottom center, bottom right;
+  background-repeat: no-repeat;
+  background-size: 2px 0, 80% 2px, 2px 0;
+
+  &::placeholder {
+    text-align: center;
+    transition: opacity 1s;
+  }
+
+  &:focus, &:not(:placeholder-shown) {
+    outline: none;
+    animation: focus 1s forwards;
+
+    &::placeholder {
+      opacity: .3;
+    }
+  }
+
+  &__clear {
+    display: inline-block;
+    visibility: hidden;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    right: 40px;
+    border: none;
+    background: none;
+    font-size: 15px;
+  }
+
+  &:not(:placeholder-shown) + &__clear {
+    visibility: visible;
+  }
+}
+
+@keyframes focus {
+  from {
+    background-size: 2px 0, 80% 2px, 2px 0;
+  }
+  50% {
+    background-size: 2px 0%, 100% 2px, 2px 0%;
+  }
+  to {
+    background-size: 2px 40%, 100% 2px, 2px 40%;
+  }
+}

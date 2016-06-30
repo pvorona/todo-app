@@ -4,7 +4,7 @@
   "scripts": {
     "prepush": "npm test",
     "test": "karma start",
-    "start": "webpack-dev-server --hot --mock --open",
+    "start": "webpack-dev-server --hot --open",
     "prestart": "npm install && npm install --only=dev",
     "clean": "rimraf -- dist"
   },

@@ -1,49 +1,8 @@
+@import './todo-new';
+
 $input-primary-bg: #eeeeee;
 $input-primary-bg-disabled: #f7f7f7;
-$input-primary-focused-border: #544172;
-
-.todo-new {
-  padding: 11px 60px 11px 10px;
-  text-overflow: ellipsis;
-  width: 750px;
-  border: none;
-  box-sizing: border-box;
-  border-radius: 4px;
-  font-size: 16px;
-
-  background: linear-gradient($input-primary-focused-border, $input-primary-focused-border), linear-gradient($input-primary-focused-border, $input-primary-focused-border), linear-gradient($input-primary-focused-border, $input-primary-focused-border);
-  background-size: 2px 30%, 100% 2px, 2px 30%;
-  background-position: bottom left, bottom center, bottom right;
-  background-repeat: no-repeat;
-
-  border: none;
-
-  &:focus {
-    outline: none;
-    background-color: #ffffff;
-    box-shadow: 0 0 0 2px $input-primary-focused-border inset;
-  }
-
-  &[disabled] {
-    background-color: $input-primary-bg-disabled;
-  }
-
-  &__clear {
-    display: inline-block;
-    visibility: hidden;
-    position: relative;
-    outline: none;
-    cursor: pointer;
-    right: 40px;
-    border: none;
-    background: none;
-    font-size: 15px;
-  }
-
-  &:not(:placeholder-shown) + &__clear {
-    visibility: visible;
-  }
-}
+$input-border: #544172;
 
 .todo-list {
   list-style: none;
@@ -85,7 +44,7 @@ $input-primary-focused-border: #544172;
       &:focus {
         outline: none;
         background-color: #ffffff;
-        box-shadow: 0 0 0 1px $input-primary-focused-border inset;
+        box-shadow: 0 0 0 1px $input-border inset;
       }
 
       &[disabled] {
