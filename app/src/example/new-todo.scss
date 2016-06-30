@@ -1,4 +1,5 @@
 $border: #544172;
+// $border: #cd85dd;
 
 .new-todo {
   padding: 11px 60px 11px 15px;
@@ -11,7 +12,8 @@ $border: #544172;
   background: linear-gradient($border, $border), linear-gradient($border, $border), linear-gradient($border, $border);
   background-position: bottom left, bottom center, bottom right;
   background-repeat: no-repeat;
-  animation: unfocus .8s forwards;
+  animation: unfocus .4s forwards;
+  transition: 1s;
 
   &::placeholder {
     text-align: center;
@@ -20,9 +22,10 @@ $border: #544172;
 
   &:focus, &:not(:placeholder-shown) {
     animation: focus 1s forwards;
+    box-shadow: 0 25px 35px -15px rgba(0, 0, 0, 0.15);
 
     &::placeholder {
-      opacity: .3;
+      opacity: .4;
     }
   }
 

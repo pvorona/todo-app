@@ -5,7 +5,7 @@ Start
 
 I.e. clone, install dependencies, start app and open browser.
 
-
 - tooltips
 - design inputs, buttons. placeholders, colors
 - animations fighting / cancelling
+- text color
