@@ -24,14 +24,12 @@ function controller (storage) {
     isEditing,
     clearInput,
     isClearingKey,
-    capitalizeFirstLetter,
-    collapseWhitespaces,
+    beautify,
     todos: storage.todos
   });
 
   function createTodo (todo) {
-    capitalizeFirstLetter(todo);
-    collapseWhitespaces(todo);
+    beautify(todo);
     addTodo(todo);
     clearInput();
   }
@@ -84,6 +82,11 @@ function controller (storage) {
     storage.todos = vm.todos
       .filter(not(isEmpty))
       .map(todo => ({title: todo.title, completed: todo.completed}));
+  }
+
+  function beautify (todo) {
+    collapseWhitespaces(todo);
+    capitalizeFirstLetter(todo);
   }
 
   function collapseWhitespaces (todo) {
