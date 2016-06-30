@@ -6,11 +6,12 @@ $border: #544172;
   width: 750px;
   border: none;
   font-size: 22px;
+  outline: none;
 
   background: linear-gradient($border, $border), linear-gradient($border, $border), linear-gradient($border, $border);
   background-position: bottom left, bottom center, bottom right;
   background-repeat: no-repeat;
-  background-size: 2px 0, 80% 2px, 2px 0;
+  animation: unfocus .8s forwards;
 
   &::placeholder {
     text-align: center;
@@ -18,7 +19,6 @@ $border: #544172;
   }
 
   &:focus, &:not(:placeholder-shown) {
-    outline: none;
     animation: focus 1s forwards;
 
     &::placeholder {
@@ -51,6 +51,18 @@ $border: #544172;
     background-size: 2px 0%, 100% 2px, 2px 0%;
   }
   to {
+    background-size: 2px 40%, 100% 2px, 2px 40%;
+  }
+}
+
+@keyframes unfocus {
+  to {
+    background-size: 2px 0, 80% 2px, 2px 0;
+  }
+  50% {
+    background-size: 2px 0%, 100% 2px, 2px 0%;
+  }
+  from {
     background-size: 2px 40%, 100% 2px, 2px 40%;
   }
 }
