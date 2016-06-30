@@ -9,13 +9,19 @@ $input-primary-focused-border: #544172;
   border: none;
   box-sizing: border-box;
   border-radius: 4px;
-  background-color: $input-primary-bg;
   font-size: 16px;
+
+  background: linear-gradient($input-primary-focused-border, $input-primary-focused-border), linear-gradient($input-primary-focused-border, $input-primary-focused-border), linear-gradient($input-primary-focused-border, $input-primary-focused-border);
+  background-size: 2px 30%, 100% 2px, 2px 30%;
+  background-position: bottom left, bottom center, bottom right;
+  background-repeat: no-repeat;
+
+  border: none;
 
   &:focus {
     outline: none;
     background-color: #ffffff;
-    box-shadow: 0 0 0 1px $input-primary-focused-border inset;
+    box-shadow: 0 0 0 2px $input-primary-focused-border inset;
   }
 
   &[disabled] {
@@ -74,7 +80,6 @@ $input-primary-focused-border: #544172;
       border-radius: 0 4px 4px 0;
       padding: 10px 60px 10px 10px;
       border: none;
-      background-color: $input-primary-bg;
       font-size: 16px;
 
       &:focus {
