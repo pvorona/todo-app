@@ -11,11 +11,6 @@ $input-primary-focused-border: #544172;
   border-radius: 4px;
   background-color: $input-primary-bg;
   font-size: 16px;
-  will-change: contents;
-
-  &::first-letter {
-    text-transform: uppercase;
-  }
 
   &:focus {
     outline: none;
