@@ -1,6 +1,6 @@
 <form name="newTodoForm" ng-submit="newTodoForm.$valid && $ctrl.createTodo($ctrl.todo)" novalidate>
-  <input ng-model="$ctrl.todo.title" ng-keydown="$ctrl.isClearingKey($event.keyCode) && $ctrl.clearInput()" autofocus required class="todo-new" placeholder="What needs to be done?">
-  <button type="reset" class="todo-new__clear">X</button>
+  <input ng-model="$ctrl.todo.title" ng-keydown="$ctrl.isClearingKey($event.keyCode) && $ctrl.clearInput()" autofocus required class="new-todo" placeholder="What needs to be done?">
+  <button type="reset" class="new-todo__clear">X</button>
 </form>
 
 <ul class="todo-list" ng-class="{'todo-list--editing': $ctrl.isEditing()}">
