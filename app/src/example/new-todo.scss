@@ -1,48 +1,53 @@
 $border: #6c3cb4;
 
 .new-todo {
-  padding: 11px 60px 11px 15px;
-  text-overflow: ellipsis;
-  width: 750px;
-  border: none;
-  font-size: 22px;
-  outline: none;
-  color: rgba(112, 201, 108, 0.75);
-  background: linear-gradient($border, $border), linear-gradient($border, $border), linear-gradient($border, $border);
-  background-position: bottom left, bottom center, bottom right;
-  background-repeat: no-repeat;
-  animation: unfocus .4s forwards;
-  transition: 1s;
+  position: relative;
 
-  &::placeholder {
-    text-align: center;
-    opacity: .75;
-    transition: opacity 1s;
-  }
-
-  &:focus, &:not(:placeholder-shown) {
-    animation: focus 1s forwards;
-    box-shadow: 0 25px 35px -15px rgba(0, 0, 0, 0.15);
+  .new-todo__input {
+    padding: 11px 60px 11px 15px;
+    text-overflow: ellipsis;
+    width: 750px;
+    border: none;
+    font-size: 22px;
+    outline: none;
+    color: rgba(112, 201, 108, 0.75);
+    background: linear-gradient($border, $border), linear-gradient($border, $border), linear-gradient($border, $border);
+    background-position: bottom left, bottom center, bottom right;
+    background-repeat: no-repeat;
+    animation: unfocus .4s forwards;
+    transition: 1s;
 
     &::placeholder {
-      opacity: .45;
+      text-align: center;
+      opacity: .75;
+      transition: opacity 1s;
     }
+
+    &:focus, &:not(:placeholder-shown) {
+      animation: focus 1s forwards;
+      box-shadow: 0 25px 35px -15px rgba(0, 0, 0, 0.15);
+
+      &::placeholder {
+        opacity: .45;
+      }
+    }
+  }
+
+  .new-todo__input:not(:placeholder-shown) + .new-todo__clear {
+    visibility: visible;
   }
 
   &__clear {
     display: inline-block;
     visibility: hidden;
-    position: relative;
+    position: absolute;
     outline: none;
     cursor: pointer;
-    right: 40px;
+    right: 13px;
+    top: 13px;
     border: none;
     background: none;
     font-size: 15px;
-  }
-
-  &:not(:placeholder-shown) + &__clear {
-    visibility: visible;
   }
 }
 
