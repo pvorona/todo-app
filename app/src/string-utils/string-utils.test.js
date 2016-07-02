@@ -1,4 +1,4 @@
-import stringUtils from '../string-utils';
+import stringUtils from './string-utils';
 
 describe('string utils', () => {
   describe('collapseWhitespaces', () => {
