@@ -1,17 +1,9 @@
-import './example.scss';
-import template from './example.html';
-import keyCodes from './key-codes';
-import stringUtils from './string-utils';
-import {not} from './decorators';
+import './todo.scss';
+import template from './todo.html';
 
-export default {
-  controller,
-  template
-};
+controller.$inject = ['storage', 'keyCodes', 'stringUtils', 'decorators'];
 
-controller.$inject = ['storage'];
-
-function controller (storage) {
+function controller (storage, keyCodes, stringUtils, {not}) {
   const vm = this;
 
   Object.assign(vm, {
@@ -109,3 +101,8 @@ function controller (storage) {
     todo.title = stringUtils.trim(todo.title);
   }
 }
+
+export default {
+  controller,
+  template
+};

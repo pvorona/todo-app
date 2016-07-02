@@ -1,5 +1,5 @@
 const not = predicate => (...args) => !predicate(...args);
 
-export {
+export default {
   not
 };

@@ -1,8 +1,8 @@
 import angular from 'angular';
-import example from './src/example';
-import './src/styles/styles.scss';
+import todo from './src/todo';
+import './src/styles';
 
 angular
-  .module('todo', [
-    example
+  .module('todo-app', [
+    todo
   ]);
