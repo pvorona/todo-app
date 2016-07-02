@@ -1,6 +1,8 @@
 import './todo.scss';
 import template from './todo.html';
 
+const key = 'todos';
+
 controller.$inject = ['storage', 'keyCodes', 'stringUtils', 'decorators'];
 
 function controller (storage, keyCodes, stringUtils, {not}) {
@@ -18,7 +20,7 @@ function controller (storage, keyCodes, stringUtils, {not}) {
     isClearingKey,
     itemsLeft,
     beautify,
-    todos: storage.todos
+    todos: storage.getItem(key)
   });
 
   function createTodo (todo) {
@@ -78,9 +80,11 @@ function controller (storage, keyCodes, stringUtils, {not}) {
   }
 
   function saveTodos () {
-    storage.todos = vm.todos
+    const todos = vm.todos
       .filter(not(isEmpty))
       .map(todo => ({title: todo.title, completed: todo.completed}));
+
+    storage.setItem(key, todos);
   }
 
   function beautify (todo) {

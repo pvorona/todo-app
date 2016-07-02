@@ -1,14 +1,12 @@
 import angular from 'angular';
 
-const key = 'todos';
-
 class storage {
-  get todos () {
+  getItem (key) {
     return angular.fromJson(localStorage.getItem(key) || []);
   }
 
-  set todos (newTodos) {
-    localStorage.setItem(key, angular.toJson(newTodos));
+  setItem (key, value) {
+    localStorage.setItem(key, angular.toJson(value));
   }
 }
 
