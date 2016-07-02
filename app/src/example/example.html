@@ -2,7 +2,7 @@
   <input ng-model="$ctrl.todo.title" ng-keydown="$ctrl.isClearingKey($event.keyCode) && $ctrl.clearInput()" required class="new-todo__input" placeholder="What needs to be done?">
   <button type="reset" class="new-todo__clear tooltip" tooltip="Clear">X</button>
 </form>
-<!--
+
 <ul class="todo-list" ng-class="{'todo-list--editing': $ctrl.isEditing()}">
   <li ng-repeat="todo in $ctrl.todos track by $index">
     <form name="editTodoForm" class="todo-list__item" ng-class="{'todo-list__item--editing': todo.editing}">
@@ -11,4 +11,4 @@
       <div ng-click="$ctrl.removeTodo(todo)" class="todo-list__item-remove">X</div>
     </form>
   </li>
-</ul> -->
+</ul>

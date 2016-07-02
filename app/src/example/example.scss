@@ -50,7 +50,6 @@ $text: rgba(108, 201, 185, 0.75);
         background: linear-gradient($input-border, $input-border);
         background-position: bottom center;
         background-repeat: no-repeat;
-        // background-size: 80% 2px;
         animation: todo-item-focus .75s forwards;
       }
 
@@ -66,11 +65,17 @@ $text: rgba(108, 201, 185, 0.75);
   }
 
   &__item-toggle {
+    position: absolute;
     outline-color: magenta;
     outline-width: 3px;
     flex-basis: 40px;
     height: 40px;
     margin: 0;
+    // opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &__item-remove {

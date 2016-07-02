@@ -1,7 +1,8 @@
 export default {
   collapseWhitespaces,
   capitalizeFirstLetter,
-  isEmpty
+  isEmpty,
+  trim
 };
 
 function collapseWhitespaces (string) {
@@ -14,4 +15,8 @@ function capitalizeFirstLetter (string) {
 
 function isEmpty (string) {
   return string.length === 0;
+}
+
+function trim (string) {
+  return string.trim();
 }

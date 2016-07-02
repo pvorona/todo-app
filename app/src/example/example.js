@@ -85,6 +85,7 @@ function controller (storage) {
   }
 
   function beautify (todo) {
+    trim(todo);
     collapseWhitespaces(todo);
     capitalizeFirstLetter(todo);
   }
@@ -95,5 +96,9 @@ function controller (storage) {
 
   function capitalizeFirstLetter (todo) {
     todo.title = stringUtils.capitalizeFirstLetter(todo.title);
+  }
+
+  function trim (todo) {
+    todo.title = stringUtils.trim(todo.title);
   }
 }
