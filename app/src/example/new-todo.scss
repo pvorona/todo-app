@@ -15,7 +15,7 @@ $text: rgba(112, 201, 108, 0.75);
     background: linear-gradient($border, $border), linear-gradient($border, $border), linear-gradient($border, $border);
     background-position: bottom left, bottom center, bottom right;
     background-repeat: no-repeat;
-    animation: unfocus .4s forwards;
+    animation: new-todo-unfocus .4s forwards;
     transition: 1s;
 
     &::placeholder {
@@ -25,7 +25,7 @@ $text: rgba(112, 201, 108, 0.75);
     }
 
     &:focus, &:not(:placeholder-shown) {
-      animation: focus 1s forwards;
+      animation: new-todo-focus 1s forwards;
       box-shadow: 0 25px 35px -15px rgba(0, 0, 0, 0.15);
 
       &::placeholder {
@@ -36,7 +36,7 @@ $text: rgba(112, 201, 108, 0.75);
 
   .new-todo__input:not(:placeholder-shown) + .new-todo__clear {
     visibility: visible;
-    animation: new-todo-fadein .5s;
+    animation: new-todo__clear-fadein .6s;
   }
 
   &__clear {
@@ -53,35 +53,19 @@ $text: rgba(112, 201, 108, 0.75);
   }
 }
 
-@keyframes focus {
-  from {
-    background-size: 2px 0, 80% 2px, 2px 0;
-  }
-  50% {
-    background-size: 2px 0%, 100% 2px, 2px 0%;
-  }
-  to {
-    background-size: 2px 40%, 100% 2px, 2px 40%;
-  }
+@keyframes new-todo-focus {
+  from { background-size: 2px 0, 80% 2px, 2px 0; }
+  50% { background-size: 2px 0%, 100% 2px, 2px 0%; }
+  to { background-size: 2px 40%, 100% 2px, 2px 40%; }
 }
 
-@keyframes unfocus {
-  to {
-    background-size: 2px 0, 80% 2px, 2px 0;
-  }
-  50% {
-    background-size: 2px 0%, 100% 2px, 2px 0%;
-  }
-  from {
-    background-size: 2px 40%, 100% 2px, 2px 40%;
-  }
+@keyframes new-todo-unfocus {
+  from { background-size: 2px 40%, 100% 2px, 2px 40%; }
+  50% { background-size: 2px 0%, 100% 2px, 2px 0%; }
+  to { background-size: 2px 0, 80% 2px, 2px 0; }
 }
 
-@keyframes new-todo-fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+@keyframes new-todo__clear-fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
