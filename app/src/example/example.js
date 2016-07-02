@@ -24,6 +24,7 @@ function controller (storage) {
     isEditing,
     clearInput,
     isClearingKey,
+    itemsLeft,
     beautify,
     todos: storage.todos
   });
@@ -72,6 +73,12 @@ function controller (storage) {
 
   function isEditing () {
     return vm.todos.some(todo => todo.editing);
+  }
+
+  function itemsLeft () {
+    return vm.todos
+      .filter(todo => !todo.completed)
+      .length;
   }
 
   function isClearingKey (keyCode) {
