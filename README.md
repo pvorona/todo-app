@@ -9,3 +9,6 @@ I.e. clone, install dependencies, start app and open browser.
 - design inputs, buttons. placeholders, colors
 - animations fighting / cancelling
 - text color
+- selection color
+- completed, remove buttons
+- ng-attr-tooltip="{{todo.title}}"

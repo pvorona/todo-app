@@ -1,6 +1,6 @@
 <form name="newTodoForm" ng-submit="newTodoForm.$valid && $ctrl.createTodo($ctrl.todo)" novalidate class="new-todo">
   <input ng-model="$ctrl.todo.title" ng-keydown="$ctrl.isClearingKey($event.keyCode) && $ctrl.clearInput()" required class="new-todo__input" placeholder="What needs to be done?">
-  <button type="reset" class="new-todo__clear" title="clear">X</button>
+  <button type="reset" class="new-todo__clear tooltip" tooltip="clear">X</button>
 </form>
 
 <ul class="todo-list" ng-class="{'todo-list--editing': $ctrl.isEditing()}">
