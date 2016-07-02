@@ -35,6 +35,7 @@ $border: #6c3cb4;
 
   .new-todo__input:not(:placeholder-shown) + .new-todo__clear {
     visibility: visible;
+    animation: fadein .5s;
   }
 
   &__clear {
