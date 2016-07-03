@@ -36,14 +36,11 @@ $text: rgba(108, 201, 185, 0.75);
 
     &-input {
       flex-grow: 1;
-      text-overflow: ellipsis;
       padding: 10px 60px 10px 10px;
-      border: none;
       font-size: 20px;
       color: $text;
 
       &:focus {
-        outline: none;
         background-color: #ffffff;
         background: linear-gradient($input-border, $input-border);
         background-position: bottom center;
@@ -81,7 +78,6 @@ $text: rgba(108, 201, 185, 0.75);
     cursor: pointer;
     right: 15px;
     top: 10px;
-    border: none;
     background: none;
     font-size: 15px;
     width: 40px;

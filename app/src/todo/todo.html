@@ -1,15 +1,15 @@
 <form name="newTodoForm"
   ng-submit="newTodoForm.$valid && $ctrl.createTodo($ctrl.todo)"
-  class="new-todo"
+  class="c-new-todo"
   novalidate>
   <input ng-model="$ctrl.todo.title"
     ng-keydown="$ctrl.isClearingKey($event.keyCode) && $ctrl.clearInput()"
     ng-change="$ctrl.saveDraft($ctrl.todo.title)"
-    class="new-todo__input"
+    class="c-new-todo__input c-input"
     placeholder="What needs to be done?"
     required />
   <button type="reset"
-    class="new-todo__clear tooltip"
+    class="c-new-todo__clear c-control tooltip"
     tooltip="Clear">X</button>
 </form>
 
@@ -28,8 +28,8 @@
         ng-blur="$ctrl.endEditing(todo); $ctrl.beautify(todo)"
         ng-disabled="todo.completed"
         ng-focus="$ctrl.startEditing(todo)"
-        class="todo-list__item-input" />
-      <div ng-click="$ctrl.removeTodo(todo)" class="todo-list__item-remove">X</div>
+        class="todo-list__item-input c-input" />
+      <div ng-click="$ctrl.removeTodo(todo)" class="todo-list__item-remove c-control">X</div>
     </form>
   </li>
 </ul>

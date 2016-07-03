@@ -6,3 +6,21 @@
 .center {
   margin: 20vh auto;
 }
+
+.c-input {
+  border: none;
+  outline: none;
+  text-overflow: ellipsis;
+}
+
+.c-control {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
