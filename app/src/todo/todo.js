@@ -85,7 +85,10 @@ function controller (storage, keyCodes, stringUtils, {not}) {
   }
 
   function saveTodos () {
-    const todos = vm.todos.filter(not(isEmpty));
+    const todos = vm.todos
+      .filter(not(isEmpty))
+      .map(todo => ({title: todo.title, completed: todo.completed}));
+
     storage.setItem(keys.todos, todos);
   }
 
