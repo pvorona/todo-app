@@ -12,4 +12,12 @@ describe('decorators', () => {
       expect(not(falsyPredicate)()).toBe(true);
     });
   });
+
+  describe('picking', () => {
+    const picking = decorators.picking;
+
+    it('passes picked property to decorated function', () => {
+      expect(picking('a', e => e)({a: 1})).toEqual(1);
+    });
+  });
 });
