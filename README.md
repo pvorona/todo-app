@@ -12,3 +12,4 @@ I.e. clone, install dependencies, start app and open browser.
 - selection color
 - completed, remove buttons
 - ng-attr-tooltip="{{todo.title}}"
+- reset text clear draft

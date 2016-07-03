@@ -8,6 +8,10 @@ class storage {
   setItem (key, value) {
     localStorage.setItem(key, angular.toJson(value));
   }
+
+  removeItem (key) {
+    localStorage.removeItem(key);
+  }
 }
 
 export default storage;

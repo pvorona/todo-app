@@ -3,7 +3,7 @@
   class="c-new-todo"
   novalidate>
   <input ng-model="$ctrl.todo.title"
-    ng-keydown="$ctrl.isClearingKey($event.keyCode) && $ctrl.clearInput()"
+    ng-keydown="$ctrl.isClearingKey($event.keyCode) && $ctrl.clearTodo()"
     ng-change="$ctrl.saveDraft($ctrl.todo.title)"
     class="c-new-todo__input c-input"
     placeholder="What needs to be done?"

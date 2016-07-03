@@ -16,11 +16,11 @@ function controller (storage, keyCodes, stringUtils, {not}) {
     removeTodo,
     saveTodos,
     saveDraft,
+    clearTodo,
     toggleCompleted,
     startEditing,
     endEditing,
     isEditing,
-    clearInput,
     isClearingKey,
     itemsLeft,
     beautify,
@@ -31,11 +31,16 @@ function controller (storage, keyCodes, stringUtils, {not}) {
   function createTodo (todo) {
     beautify(todo);
     addTodo(todo);
-    clearInput();
+    clearTodo();
   }
 
   function clearInput () {
     vm.todo = '';
+  }
+
+  function clearTodo () {
+    clearInput();
+    clearDraft();
   }
 
   function addTodo (todo) {
@@ -56,6 +61,10 @@ function controller (storage, keyCodes, stringUtils, {not}) {
 
   function saveDraft (title) {
     storage.setItem(keys.draft, {title});
+  }
+
+  function clearDraft () {
+    storage.removeItem(keys.draft);
   }
 
   function startEditing (todo) {
@@ -87,9 +96,13 @@ function controller (storage, keyCodes, stringUtils, {not}) {
   function saveTodos () {
     const todos = vm.todos
       .filter(not(isEmpty))
-      .map(todo => ({title: todo.title, completed: todo.completed}));
+      .map(pickPropsToSave);
 
     storage.setItem(keys.todos, todos);
+  }
+
+  function pickPropsToSave (todo) {
+    return {title: todo.title, completed: todo.completed};
   }
 
   function beautify (todo) {
