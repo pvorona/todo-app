@@ -6,9 +6,9 @@ const keys = {
   draft: 'todo'
 };
 
-controller.$inject = ['storage', 'keyCodes', 'stringUtils', 'decorators'];
+controller.$inject = ['$element', 'storage', 'keyCodes', 'stringUtils', 'decorators'];
 
-function controller (storage, keyCodes, stringUtils, {not}) {
+function controller ($element, storage, keyCodes, stringUtils, {not}) {
   const vm = this;
 
   Object.assign(vm, {
@@ -27,6 +27,16 @@ function controller (storage, keyCodes, stringUtils, {not}) {
     todos: storage.getItem(keys.todos),
     todo: storage.getItem(keys.draft)
   });
+
+  activate();
+
+  function activate () {
+    if (vm.todo.title) focusNewTodoInput();
+  }
+
+  function focusNewTodoInput () {
+    $element[0].querySelector('.js-focus').focus();
+  }
 
   function createTodo (todo) {
     beautify(todo);
