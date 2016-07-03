@@ -15,8 +15,8 @@ function controller (storage, keyCodes, stringUtils, {not}) {
     createTodo,
     removeTodo,
     saveTodos,
-    toggleCompleted,
     saveDraft,
+    toggleCompleted,
     startEditing,
     endEditing,
     isEditing,
@@ -85,10 +85,7 @@ function controller (storage, keyCodes, stringUtils, {not}) {
   }
 
   function saveTodos () {
-    const todos = vm.todos
-      .filter(not(isEmpty))
-      .map(todo => ({title: todo.title, completed: todo.completed}));
-
+    const todos = vm.todos.filter(not(isEmpty));
     storage.setItem(keys.todos, todos);
   }
 
