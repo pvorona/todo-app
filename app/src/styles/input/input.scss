@@ -1,0 +1,82 @@
+@import '../colors.scss';
+
+.c-input {
+  border: none;
+  outline: none;
+  text-overflow: ellipsis;
+  color: $g-color-text-primary;
+  padding: 11px 55px 11px 15px;
+  font-size: 20px;
+  flex: 1;
+  transition: box-shadow 1s;
+
+  &::selection {
+    background-color: $g-color-selection;
+    color: white;
+  }
+
+  &::placeholder {
+    text-align: center;
+    opacity: .75;
+    transition: opacity 1s;
+  }
+
+  &[disabled] {
+    background-color: transparent;
+    color: rgba(58, 190, 19, 0.35);
+  }
+
+  &:focus, &[placeholder]:not(:placeholder-shown) {
+    box-shadow: 0 25px 35px -15px $g-color-shadow;
+    background: linear-gradient($g-color-primary, $g-color-primary);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    animation: a-input--secondary-focus .75s forwards;
+
+    &::placeholder {
+      opacity: .45;
+    }
+  }
+
+  &--big {
+    font-size: 26px;
+  }
+
+  &:not(:placeholder-shown) + &__clear {
+    visibility: visible;
+    animation: a-fade-in .6s;
+  }
+
+  &__clear {
+    @extend .c-input__control;
+    visibility: hidden;
+    position: absolute;
+    right: 13px;
+    top: 13px;
+    font-size: 26px;
+
+    &::after {
+      content: '×';
+    }
+
+    &:hover {
+      color: $g-color-secondary;
+    }
+  }
+}
+
+.c-input__control {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+@keyframes a-input--secondary-focus {
+  from {
+    background-size: 0 2px;
+  }
+  to {
+    background-size: 100% 2px;
+  }
+}

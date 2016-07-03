@@ -5,12 +5,12 @@
   <input ng-model="$ctrl.todo.title"
     ng-keydown="$ctrl.isClearingKey($event.keyCode) && $ctrl.clearTodo()"
     ng-change="$ctrl.saveDraft($ctrl.todo.title)"
-    class="c-new-todo__input c-input js-focus"
+    class="c-input c-input--big c-input--main js-focus"
     placeholder="What needs to be done?"
     required />
   <button type="reset"
-    class="c-new-todo__clear c-control tooltip"
-    tooltip="Clear">X</button>
+    class="c-input__clear tooltip"
+    tooltip="Clear"></button>
 </form>
 
 <ul class="todo-list" ng-class="{'todo-list--editing': $ctrl.isEditing()}">
@@ -28,9 +28,8 @@
         ng-blur="$ctrl.endEditing(todo); $ctrl.beautify(todo)"
         ng-disabled="todo.completed"
         ng-focus="$ctrl.startEditing(todo)"
-        class="todo-list__item-input c-input" />
+        class="c-input" />
       <div ng-click="$ctrl.removeTodo(todo)" class="todo-list__item-remove c-control">X</div>
     </form>
   </li>
 </ul>
-{{ $ctrl.itemsLeft() }} items left

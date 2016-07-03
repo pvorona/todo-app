@@ -1,27 +1,29 @@
-.content {
+.l-content {
   display: flex;
   min-height: 90vh;
 }
 
-.center {
+.l-center {
   margin: 20vh auto;
-}
-
-.c-input {
-  border: none;
-  outline: none;
-  text-overflow: ellipsis;
-}
-
-.c-control {
-  background: none;
-  border: none;
-  cursor: pointer;
-  outline: none;
 }
 
 ul {
   list-style: none;
-  padding: 0;
+}
+
+*, ::before, ::after {
   margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-weight: inherit;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+@keyframes a-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

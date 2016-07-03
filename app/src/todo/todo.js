@@ -22,7 +22,6 @@ function controller ($element, storage, keyCodes, stringUtils, {not}) {
     endEditing,
     isEditing,
     isClearingKey,
-    itemsLeft,
     beautify,
     todos: storage.getItem(keys.todos),
     todo: storage.getItem(keys.draft)
@@ -91,12 +90,6 @@ function controller ($element, storage, keyCodes, stringUtils, {not}) {
 
   function isEditing () {
     return vm.todos.some(todo => todo.editing);
-  }
-
-  function itemsLeft () {
-    return vm.todos
-      .filter(todo => !todo.completed)
-      .length;
   }
 
   function isClearingKey (keyCode) {

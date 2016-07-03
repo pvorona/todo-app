@@ -1,5 +1,4 @@
 $input-primary-bg: #eeeeee;
-$input-primary-bg-disabled: #f7f7f7;
 $input-border: rgba(#544171, 0.7);
 $text: rgba(108, 201, 185, 0.75);
 
@@ -32,31 +31,6 @@ $text: rgba(108, 201, 185, 0.75);
     &--editing {
       // border-bottom: red 1px;
       // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    }
-
-    &-input {
-      flex-grow: 1;
-      padding: 10px 60px 10px 10px;
-      font-size: 20px;
-      color: $text;
-
-      &:focus {
-        background-color: #ffffff;
-        background: linear-gradient($input-border, $input-border);
-        background-position: bottom center;
-        background-repeat: no-repeat;
-        animation: todo-item-focus .75s forwards;
-        box-shadow: 0 25px 35px -15px rgba(0, 0, 0, 0.15);
-      }
-
-      &[disabled] {
-        background-color: $input-primary-bg-disabled;
-      }
-
-      &::selection {
-        background-color: rgba(#24212b, 0.45);
-        color: white;
-      }
     }
   }
 
@@ -97,14 +71,5 @@ $text: rgba(108, 201, 185, 0.75);
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes todo-item-focus {
-  from {
-    background-size: 0 2px;
-  }
-  to {
-    background-size: 100% 2px;
   }
 }

@@ -5,6 +5,9 @@ Start
 
 I.e. clone, install dependencies, start app and open browser.
 
+Features:
+- save as you type
+
 - tooltips
 - design inputs, buttons. placeholders, colors
 - animations fighting / cancelling
