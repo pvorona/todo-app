@@ -1,15 +1,23 @@
 @import '../colors.scss';
 
 .c-input--main {
-  background: linear-gradient($g-color-primary, $g-color-primary), linear-gradient($g-color-primary, $g-color-primary), linear-gradient($g-color-primary, $g-color-primary);
-  background-position: bottom left, bottom center, bottom right;
+  background: linear-gradient($g-color-primary, $g-color-primary), 
+              linear-gradient($g-color-primary, $g-color-primary), 
+              linear-gradient($g-color-primary, $g-color-primary);
+  background-position: bottom left, 
+                       bottom center, 
+                       bottom right;
   background-repeat: no-repeat;
   animation: a-input--main-focus-out .4s forwards;
 
   &:focus, &[placeholder]:not(:placeholder-shown) {
     animation: a-input--main-focus-in 1s forwards;
-    background: linear-gradient($g-color-primary, $g-color-primary), linear-gradient($g-color-primary, $g-color-primary), linear-gradient($g-color-primary, $g-color-primary);
-    background-position: bottom left, bottom center, bottom right;
+    background: linear-gradient($g-color-primary, $g-color-primary), 
+                linear-gradient($g-color-primary, $g-color-primary), 
+                linear-gradient($g-color-primary, $g-color-primary);
+    background-position: bottom left, 
+                         bottom center, 
+                         bottom right;
     background-repeat: no-repeat;
   }
 }
