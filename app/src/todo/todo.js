@@ -1,7 +1,10 @@
 import './todo.scss';
 import template from './todo.html';
 
-const key = 'todos';
+const keys = {
+  todos: 'todos',
+  draft: 'todo'
+};
 
 controller.$inject = ['storage', 'keyCodes', 'stringUtils', 'decorators'];
 
@@ -13,6 +16,7 @@ function controller (storage, keyCodes, stringUtils, {not}) {
     removeTodo,
     saveTodos,
     toggleCompleted,
+    saveDraft,
     startEditing,
     endEditing,
     isEditing,
@@ -20,7 +24,8 @@ function controller (storage, keyCodes, stringUtils, {not}) {
     isClearingKey,
     itemsLeft,
     beautify,
-    todos: storage.getItem(key)
+    todos: storage.getItem(keys.todos),
+    todo: storage.getItem(keys.draft)
   });
 
   function createTodo (todo) {
@@ -49,6 +54,10 @@ function controller (storage, keyCodes, stringUtils, {not}) {
     saveTodos();
   }
 
+  function saveDraft (title) {
+    storage.setItem(keys.draft, {title});
+  }
+
   function startEditing (todo) {
     todo.editing = true;
   }
@@ -59,10 +68,6 @@ function controller (storage, keyCodes, stringUtils, {not}) {
     } else {
       todo.editing = false;
     }
-  }
-
-  function isEmpty (todo) {
-    return stringUtils.isEmpty(todo.title);
   }
 
   function isEditing () {
@@ -84,13 +89,17 @@ function controller (storage, keyCodes, stringUtils, {not}) {
       .filter(not(isEmpty))
       .map(todo => ({title: todo.title, completed: todo.completed}));
 
-    storage.setItem(key, todos);
+    storage.setItem(keys.todos, todos);
   }
 
   function beautify (todo) {
     trim(todo);
     collapseWhitespaces(todo);
     capitalizeFirstLetter(todo);
+  }
+
+  function isEmpty (todo) {
+    return stringUtils.isEmpty(todo.title);
   }
 
   function collapseWhitespaces (todo) {
