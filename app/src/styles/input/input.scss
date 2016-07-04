@@ -40,13 +40,9 @@
 
   &__clear {
     @extend %c-input__control;
-    visibility: hidden;
-    position: absolute;
-    right: 13px;
-    top: 13px;
-    font-size: 26px;
 
     &::after {
+      margin: auto;
       content: '×';
     }
 
@@ -59,13 +55,38 @@
       animation: a-fade-in .6s;
     }
   }
+
+  &__remove {
+    @extend %c-input__control;
+
+    &:hover {
+      visibility: visible;
+      color: $g-color-secondary;
+    }
+
+    .c-input:hover + & {
+      visibility: visible;
+    }
+
+    &::after {
+      margin: auto;
+      content: '×';
+    }
+  }
+
 }
 
 %c-input__control {
+  display: flex;
   background: none;
   border: none;
   cursor: pointer;
   outline: none;
+  visibility: hidden;
+  position: absolute;
+  right: 13px;
+  height: 100%;
+  font-size: 26px;
 }
 
 @keyframes a-input--secondary-focus {
