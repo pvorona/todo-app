@@ -5,7 +5,7 @@
   <input ng-model="$ctrl.todo.title"
     ng-keydown="$ctrl.isClearingKey($event.keyCode) && $ctrl.clearTodo()"
     ng-change="$ctrl.saveDraft($ctrl.todo.title)"
-    class="c-input c-input--big c-input--main js-focus"
+    class="c-input c-input--big c-input--main js-new-todo-input-focus"
     placeholder="What needs to be done?"
     required />
   <button type="reset"
