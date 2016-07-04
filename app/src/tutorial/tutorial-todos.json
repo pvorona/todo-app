@@ -1,0 +1,9 @@
+[
+  {"title":"You can edit an existing todo by clicking here (it's basic <input />)."},
+  {"title":"Main input can be cleared by pressing Esc key or × sign."},
+  {"title":"Todos are saved in local storage as you type,"},
+  {"title":"even draft todo in main input (the one that on top)."},
+  {"title":"This one is completed.","completed":"true"},
+  {"title":"This one is not."},
+  {"title":"Refresh the page to delete tutorial todos."}
+]

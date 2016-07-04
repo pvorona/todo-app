@@ -3,8 +3,6 @@ $input-border: rgba(#544171, 0.7);
 $text: rgba(108, 201, 185, 0.75);
 
 .todo-list {
-  list-style: none;
-  padding: 0;
   margin-top: 50px;
 
   &.todo-list--editing {

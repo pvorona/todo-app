@@ -3,12 +3,13 @@ import template from './todo.html';
 
 const keys = {
   todos: 'todos',
-  draft: 'todo'
+  draft: 'todo',
+  tutorial: 'tutorial'
 };
 
-controller.$inject = ['$element', 'storage', 'keyCodes', 'stringUtils', 'decorators'];
+controller.$inject = ['$element', 'storage', 'keyCodes', 'stringUtils', 'decorators', 'tutorialTodo', 'tutorialTodos'];
 
-function controller ($element, storage, keyCodes, stringUtils, {not}) {
+function controller ($element, storage, keyCodes, stringUtils, {not}, tutorialTodo, tutorialTodos) {
   const vm = this;
 
   Object.assign(vm, {
@@ -30,7 +31,16 @@ function controller ($element, storage, keyCodes, stringUtils, {not}) {
   activate();
 
   function activate () {
+    if (!storage.getItem(keys.tutorial).length) {
+      showTutorial();
+      storage.setItem(keys.tutorial, 'shown');
+    }
     if (vm.todo.title) focusNewTodoInput();
+  }
+
+  function showTutorial () {
+    vm.todo = tutorialTodo;
+    vm.todos = tutorialTodos;
   }
 
   function focusNewTodoInput () {
