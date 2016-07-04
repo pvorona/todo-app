@@ -25,16 +25,10 @@ $text: rgba(108, 201, 185, 0.75);
     &:hover &-remove {
       visibility: visible;
     }
-
-    &--editing {
-      // border-bottom: red 1px;
-      // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    }
   }
 
   &__item-toggle {
     position: absolute;
-    margin: 0;
     opacity: 0;
 
     &:hover {
