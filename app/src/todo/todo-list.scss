@@ -30,6 +30,8 @@ $text: rgba(108, 201, 185, 0.75);
   &__item-toggle {
     position: absolute;
     opacity: 0;
+    width: 16px;
+    height: 16px;
 
     &:hover {
       opacity: 1;
