@@ -44,7 +44,7 @@ function controller ($element, storage, keyCodes, stringUtils, {not}, tutorialTo
   }
 
   function focusNewTodoInput () {
-    $element[0].querySelector('.js-focus').focus();
+    $element[0].querySelector('.js-new-todo-input-focus').focus();
   }
 
   function createTodo (todo) {
