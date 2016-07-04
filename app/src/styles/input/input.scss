@@ -38,17 +38,8 @@
     }
   }
 
-  &--big {
-    font-size: 26px;
-  }
-
-  &:not(:placeholder-shown) + &__clear {
-    visibility: visible;
-    animation: a-fade-in .6s;
-  }
-
   &__clear {
-    @extend .c-input__control;
+    @extend %c-input__control;
     visibility: hidden;
     position: absolute;
     right: 13px;
@@ -62,10 +53,15 @@
     &:hover {
       color: $g-color-secondary;
     }
+
+    .c-input:not(:placeholder-shown) + & {
+      visibility: visible;
+      animation: a-fade-in .6s;
+    }
   }
 }
 
-.c-input__control {
+%c-input__control {
   background: none;
   border: none;
   cursor: pointer;
