@@ -1,7 +1,7 @@
 import './todo.scss';
 import template from './todo.html';
 
-const keys = {
+const storageKeys = {
   todos: 'todos',
   draft: 'todo',
   tutorial: 'tutorial'
@@ -24,16 +24,16 @@ function controller ($element, storage, keyCodes, stringUtils, {not}, tutorialTo
     isEditing,
     isClearingKey,
     beautify,
-    todos: storage.getItem(keys.todos),
-    todo: storage.getItem(keys.draft)
+    todos: storage.getItem(storageKeys.todos),
+    todo: storage.getItem(storageKeys.draft)
   });
 
   activate();
 
   function activate () {
-    if (!storage.getItem(keys.tutorial).length) {
+    if (!storage.getItem(storageKeys.tutorial).length) {
       showTutorial();
-      storage.setItem(keys.tutorial, 'shown');
+      storage.setItem(storageKeys.tutorial, 'shown');
     }
     if (vm.todo.title) focusNewTodoInput();
   }
@@ -79,11 +79,11 @@ function controller ($element, storage, keyCodes, stringUtils, {not}, tutorialTo
   }
 
   function saveDraft (title) {
-    storage.setItem(keys.draft, {title});
+    storage.setItem(storageKeys.draft, {title});
   }
 
   function clearDraft () {
-    storage.removeItem(keys.draft);
+    storage.removeItem(storageKeys.draft);
   }
 
   function startEditing (todo) {
@@ -111,7 +111,7 @@ function controller ($element, storage, keyCodes, stringUtils, {not}, tutorialTo
       .filter(not(isEmpty))
       .map(pickPropsToSave);
 
-    storage.setItem(keys.todos, todos);
+    storage.setItem(storageKeys.todos, todos);
   }
 
   function pickPropsToSave (todo) {
