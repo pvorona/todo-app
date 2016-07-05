@@ -13,51 +13,15 @@ $text: rgba(108, 201, 185, 0.75);
 
   &__item {
     position: relative;
-    width: 100%;
-    animation: todo-item-fadein .75s;
+    animation: a-todo-item-fadein .75s;
     margin: 5px 0;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     transition: .4s cubic-bezier(0.65, 0.05, 0.36, 1);
-    transition-property: opacity, box-shadow;
-
-    &:hover &-remove {
-      visibility: visible;
-    }
-  }
-
-  &__item-toggle {
-    position: absolute;
-    opacity: 0;
-    width: 16px;
-    height: 16px;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  &__item-remove {
-    display: inline-block;
-    visibility: hidden;
-    position: absolute;
-    outline: none;
-    cursor: pointer;
-    right: 15px;
-    top: 10px;
-    background: none;
-    font-size: 15px;
-    width: 40px;
-    text-align: end;
-
-    &:hover {
-      color: red;
-    }
+    transition-property: opacity;
   }
 }
 
-@keyframes todo-item-fadein {
+@keyframes a-todo-item-fadein {
   from {
     opacity: 0;
     transform: translateY(-30px);
