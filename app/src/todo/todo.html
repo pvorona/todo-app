@@ -20,7 +20,7 @@
   <li ng-repeat="todo in $ctrl.todos track by $index">
     <form
       name="editTodoForm"
-      class="todo-list__item"
+      class="todo-list__item todo-list__item--animated-fadein"
       ng-class="{'todo-list__item--editing': todo.editing}">
       <input
         ng-click="$ctrl.selectText()"

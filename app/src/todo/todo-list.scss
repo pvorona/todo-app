@@ -13,15 +13,18 @@ $text: rgba(108, 201, 185, 0.75);
 
   &__item {
     position: relative;
-    animation: a-todo-item-fadein .75s;
     margin: 5px 0;
     display: flex;
     transition: .4s cubic-bezier(0.65, 0.05, 0.36, 1);
     transition-property: opacity;
+
+    &--animated-fadein {
+      animation: a-todo-item-animated-fadein .75s;
+    }
   }
 }
 
-@keyframes a-todo-item-fadein {
+@keyframes a-todo-item-animated-fadein {
   from {
     opacity: 0;
     transform: translateY(-30px);
