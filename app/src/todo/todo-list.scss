@@ -1,7 +1,7 @@
 .todo-list {
   margin-top: 50px;
 
-  &.todo-list--editing {
+  &--editing {
     .todo-list__item:not(.todo-list__item--editing) {
       opacity: .25;
     }
