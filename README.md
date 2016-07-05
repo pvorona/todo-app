@@ -16,3 +16,4 @@ Features:
 - completed, remove buttons
 - ng-attr-tooltip="{{todo.title}}"
 - reset text clear draft
+- extract animation durations

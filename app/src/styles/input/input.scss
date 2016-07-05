@@ -4,11 +4,11 @@
   border: none;
   outline: none;
   text-overflow: ellipsis;
+  background-color: transparent;
   color: $g-color-text-primary;
   padding: 11px 55px 11px 15px;
   font-size: 20px;
   flex: 1;
-  transition: box-shadow 1s;
 
   &::selection {
     background-color: $g-color-selection;
@@ -18,23 +18,53 @@
   &::placeholder {
     text-align: center;
     opacity: .75;
-    transition: opacity 1s;
   }
 
   &[disabled] {
-    background-color: transparent;
-    color: rgba(58, 190, 19, 0.35);
+    color: $g-color-text-disabled;
   }
 
-  &:focus, &[placeholder]:not(:placeholder-shown) {
-    box-shadow: 0 25px 35px -15px $g-color-shadow;
-    background: linear-gradient($g-color-primary, $g-color-primary);
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    animation: a-input--secondary-focus .75s forwards;
-
+  &--animated-placeholder {
     &::placeholder {
-      opacity: .45;
+      transition: opacity 1s;
+    }
+
+    &:focus, &[placeholder]:not(:placeholder-shown) {
+      &::placeholder {
+        opacity: .45;
+      }
+    }
+  }
+
+  &--animated-shadow {
+    transition: box-shadow 1s;
+
+    &:focus, &[placeholder]:not(:placeholder-shown) {
+      box-shadow: 0 25px 35px -15px $g-color-shadow;
+    }
+  }
+
+  &--animated-border-1 {
+    &:focus, &[placeholder]:not(:placeholder-shown) {
+      background: linear-gradient($g-color-primary, $g-color-primary);
+      background-position: bottom center;
+      background-repeat: no-repeat;
+      animation: a-input-animated-border-1-in .5s forwards;
+    }
+  }
+
+  &--animated-border-2 {
+    background: linear-gradient($g-color-primary, $g-color-primary),
+                linear-gradient($g-color-primary, $g-color-primary),
+                linear-gradient($g-color-primary, $g-color-primary);
+    background-position: bottom left,
+                         bottom center,
+                         bottom right;
+    background-repeat: no-repeat;
+    animation: a-input-animated-border-2-out .4s forwards;
+
+    &:focus, &[placeholder]:not(:placeholder-shown) {
+      animation: a-input-animated-border-2-in .6s forwards;
     }
   }
 
@@ -42,7 +72,6 @@
     @extend %c-input__control;
 
     &::after {
-      margin: auto;
       content: '×';
     }
 
@@ -58,6 +87,7 @@
 
   &__remove {
     @extend %c-input__control;
+    right: 26px;
 
     &:hover {
       visibility: visible;
@@ -69,31 +99,65 @@
     }
 
     &::after {
-      margin: auto;
       content: '×';
     }
   }
 
+  &__check {
+    @extend %c-input__control;
+
+    &:hover {
+      visibility: visible;
+    }
+
+    &::after {
+      content: '☑';
+    }
+  }
 }
 
 %c-input__control {
-  display: flex;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   cursor: pointer;
   outline: none;
   visibility: hidden;
   position: absolute;
-  right: 13px;
-  height: 100%;
+  right: 15px;
   font-size: 26px;
 }
 
-@keyframes a-input--secondary-focus {
+@keyframes a-input-animated-border-1-in {
   from {
     background-size: 0 2px;
   }
   to {
     background-size: 100% 2px;
+  }
+}
+
+@keyframes a-input-animated-border-2-in {
+  from {
+    background-size: 2px 0, 80% 2px, 2px 0;
+  }
+  50% {
+    background-size: 2px 0%, 100% 2px, 2px 0%;
+  }
+  to {
+    background-size: 2px 40%, 100% 2px, 2px 40%;
+  }
+}
+
+@keyframes a-input-animated-border-2-out {
+  from {
+    background-size: 2px 40%, 100% 2px, 2px 40%;
+  }
+  50% {
+    background-size: 2px 0%, 100% 2px, 2px 0%;
+  }
+  to {
+    background-size: 2px 0, 80% 2px, 2px 0;
   }
 }
