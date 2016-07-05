@@ -5,15 +5,8 @@ Start
 
 I.e. clone, install dependencies, start app and open browser.
 
-Features:
-- save as you type
-
+TODO:
 - tooltips
-- design inputs, buttons. placeholders, colors
-- animations fighting / cancelling
-- text color
-- selection color
-- completed, remove buttons
-- ng-attr-tooltip="{{todo.title}}"
+- complete todo button
 - reset text clear draft
-- extract animation durations
+- extract animation durations, colors to variables
