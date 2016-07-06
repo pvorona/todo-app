@@ -25,7 +25,7 @@
       <input
         ng-click="$ctrl.selectText()"
         ng-model="todo.title"
-        ng-keydown="$ctrl.saveTodos()"
+        ng-keydown="$ctrl.saveTodos(); $ctrl.maybeBlur($event)"
         ng-blur="$ctrl.endEditing(todo); $ctrl.beautify(todo)"
         ng-disabled="todo.completed"
         ng-focus="$ctrl.startEditing(todo)"

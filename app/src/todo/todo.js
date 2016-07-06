@@ -21,6 +21,7 @@ function controller ($element, storage, keyCodes, {capitalizeFirstLetter, collap
     endEditing,
     isEditing,
     isClearingKey,
+    maybeBlur,
     beautify,
     todos: storage.getItem(storageKeys.todos),
     todo: storage.getItem(storageKeys.draft)
@@ -94,6 +95,11 @@ function controller ($element, storage, keyCodes, {capitalizeFirstLetter, collap
     } else {
       todo.editing = false;
     }
+  }
+
+  function maybeBlur (event) {
+    const {target, keyCode} = event;
+    if (keyCode === keyCodes.ENTER) target.blur();
   }
 
   function isEditing () {
