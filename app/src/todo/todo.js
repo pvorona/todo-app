@@ -20,6 +20,7 @@ function controller ($element, storage, keyCodes, {capitalizeFirstLetter, collap
     startEditing,
     endEditing,
     isEditing,
+    saveAndBlur,
     isClearingKey,
     maybeBlur,
     beautify,
@@ -95,6 +96,11 @@ function controller ($element, storage, keyCodes, {capitalizeFirstLetter, collap
     } else {
       todo.editing = false;
     }
+  }
+
+  function saveAndBlur (event) {
+    maybeBlur(event);
+    saveTodos();
   }
 
   function maybeBlur (event) {

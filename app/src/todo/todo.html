@@ -23,9 +23,8 @@
       class="todo-list__item todo-list__item--animated-fadein"
       ng-class="{'todo-list__item--editing': todo.editing}">
       <input
-        ng-click="$ctrl.selectText()"
         ng-model="todo.title"
-        ng-keydown="$ctrl.saveTodos(); $ctrl.maybeBlur($event)"
+        ng-keydown="$ctrl.saveAndBlur($event)"
         ng-blur="$ctrl.endEditing(todo); $ctrl.beautify(todo)"
         ng-disabled="todo.completed"
         ng-focus="$ctrl.startEditing(todo)"
