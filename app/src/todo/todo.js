@@ -2,9 +2,12 @@ import './todo.scss';
 import template from './todo.html';
 import storageKeys from './todo-storage-keys';
 
-controller.$inject = ['$element', 'storage', 'keyCodes', 'stringUtils', 'decorators', 'tutorialTodo', 'tutorialTodos'];
+controller.$inject = ['$element', 'storage', 'keyCodes', 'stringUtils',
+  'decorators', 'tutorialTodo', 'tutorialTodos'];
 
-function controller ($element, storage, keyCodes, {capitalizeFirstLetter, collapseWhitespaces, trim, isEmpty: isEmptyString}, {not, compose, picking, setting}, tutorialTodo, tutorialTodos) {
+function controller ($element, storage, keyCodes, {capitalizeFirstLetter,
+  collapseWhitespaces, trim, isEmpty: isEmptyString}, {not, compose, picking,
+  setting}, tutorialTodo, tutorialTodos) {
   const vm = this;
 
   const beautify = setting('title', picking('title', compose(capitalizeFirstLetter, collapseWhitespaces, trim)));
