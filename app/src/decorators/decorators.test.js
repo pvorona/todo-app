@@ -20,4 +20,25 @@ describe('decorators', () => {
       expect(picking('a', e => e)({a: 1})).toEqual(1);
     });
   });
+
+  describe('setting', () => {
+    const setting = decorators.setting;
+
+    it('sets property with passed function', () => {
+      const obj = {};
+      setting('a', () => 2)(obj);
+      expect(obj.a).toBe(2);
+    });
+  });
+
+  describe('compose', () => {
+    const compose = decorators.compose;
+
+    it('combines functions', () => {
+      const addOne = x => x + 1;
+      const multiplyByTwo = x => x * 2;
+
+      expect(compose(multiplyByTwo, addOne)(0)).toBe(2);
+    });
+  });
 });

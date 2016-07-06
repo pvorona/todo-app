@@ -1,16 +1,14 @@
 import './todo.scss';
 import template from './todo.html';
-
-const storageKeys = {
-  todos: 'todos',
-  draft: 'todo',
-  tutorial: 'tutorial'
-};
+import storageKeys from './todo-storage-keys';
 
 controller.$inject = ['$element', 'storage', 'keyCodes', 'stringUtils', 'decorators', 'tutorialTodo', 'tutorialTodos'];
 
-function controller ($element, storage, keyCodes, stringUtils, {not}, tutorialTodo, tutorialTodos) {
+function controller ($element, storage, keyCodes, {capitalizeFirstLetter, collapseWhitespaces, trim, isEmpty: isEmptyString}, {not, compose, picking, setting}, tutorialTodo, tutorialTodos) {
   const vm = this;
+
+  const beautify = setting('title', picking('title', compose(capitalizeFirstLetter, collapseWhitespaces, trim)));
+  const isEmpty = picking('title', isEmptyString);
 
   Object.assign(vm, {
     createTodo,
@@ -116,28 +114,6 @@ function controller ($element, storage, keyCodes, stringUtils, {not}, tutorialTo
 
   function pickPropsToSave (todo) {
     return {title: todo.title, completed: todo.completed};
-  }
-
-  function beautify (todo) {
-    trim(todo);
-    collapseWhitespaces(todo);
-    capitalizeFirstLetter(todo);
-  }
-
-  function isEmpty (todo) {
-    return stringUtils.isEmpty(todo.title);
-  }
-
-  function collapseWhitespaces (todo) {
-    todo.title = stringUtils.collapseWhitespaces(todo.title);
-  }
-
-  function capitalizeFirstLetter (todo) {
-    todo.title = stringUtils.capitalizeFirstLetter(todo.title);
-  }
-
-  function trim (todo) {
-    todo.title = stringUtils.trim(todo.title);
   }
 }
 
