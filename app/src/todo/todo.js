@@ -108,7 +108,7 @@ function controller ($element, storage, keyCodes, {capitalizeFirstLetter,
 
   function maybeBlur (event) {
     const {target, keyCode} = event;
-    if (keyCode === keyCodes.ENTER) target.blur();
+    if (keyCode === keyCodes.ENTER || keyCode === keyCodes.ESC) target.blur();
   }
 
   function isEditing () {
