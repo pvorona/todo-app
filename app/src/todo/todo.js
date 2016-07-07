@@ -20,11 +20,11 @@ function controller ($element, storage, keyCodes, {capitalizeFirstLetter,
     saveDraft,
     clearTodo,
     toggleCompleted,
+    newTodoKeydown,
     startEditing,
     endEditing,
     isEditing,
     saveAndBlur,
-    isClearingKey,
     maybeBlur,
     beautify,
     todos: storage.getItem(storageKeys.todos),
@@ -54,6 +54,12 @@ function controller ($element, storage, keyCodes, {capitalizeFirstLetter,
     beautify(todo);
     addTodo(todo);
     clearTodo();
+  }
+
+  function newTodoKeydown ($event) {
+    if ($event.keyCode === keyCodes.ESC)
+      if (!vm.todo.title) $event.target.blur();
+      else clearTodo();
   }
 
   function clearInput () {
@@ -113,10 +119,6 @@ function controller ($element, storage, keyCodes, {capitalizeFirstLetter,
 
   function isEditing () {
     return vm.todos.some(todo => todo.editing);
-  }
-
-  function isClearingKey (keyCode) {
-    return keyCode === keyCodes.ESC;
   }
 
   function saveTodos () {
