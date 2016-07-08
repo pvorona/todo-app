@@ -4,6 +4,21 @@
   }
 }
 
+.todo--editing {
+  .c-input--animated-border-2 {
+    animation: a-input-animated-border-2-no-border .4s forwards;
+  }
+}
+
+@keyframes a-input-animated-border-2-no-border {
+  from {
+    background-size: 2px 0, 80% 2px, 2px 0;
+  }
+  to {
+    background-size: 2px 0, 0 2px, 2px 0;
+  }
+}
+
 .todo-list {
   margin-top: 50px;
 
