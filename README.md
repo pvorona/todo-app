@@ -10,3 +10,4 @@ TODO:
 - complete todo button
 - reset text clear draft
 - extract animation durations, colors to variables
+- remove new-todo underline when editing todo-items
