@@ -1,39 +1,41 @@
-<form
-  name="newTodoForm"
-  ng-submit="newTodoForm.$valid && $ctrl.createTodo($ctrl.todo)"
-  class="new-todo"
-  novalidate>
-  <input
-    ng-model="$ctrl.todo.title"
-    ng-keydown="$ctrl.newTodoKeydown($event)"
-    ng-change="$ctrl.saveDraft($ctrl.todo.title)"
-    class="c-input c-input--animated-shadow c-input--animated-placeholder c-input--animated-border-2 text-big js-new-todo-input-focus"
-    placeholder="What needs to be done?"
-    required />
-  <button
-    type="reset"
-    class="c-input__clear tooltip"
-    tooltip="Clear"></button>
-</form>
+<div ng-class="{'todo--editing': $ctrl.isEditing()}">
+  <form
+    name="newTodoForm"
+    ng-submit="newTodoForm.$valid && $ctrl.createTodo($ctrl.todo)"
+    class="new-todo"
+    novalidate>
+    <input
+      ng-model="$ctrl.todo.title"
+      ng-keydown="$ctrl.newTodoKeydown($event)"
+      ng-change="$ctrl.saveDraft($ctrl.todo.title)"
+      class="c-input c-input--animated-shadow c-input--animated-placeholder c-input--animated-border-2 text-big js-new-todo-input-focus"
+      placeholder="What needs to be done?"
+      required />
+    <button
+      type="reset"
+      class="c-input__clear tooltip"
+      tooltip="Clear"></button>
+  </form>
 
-<ul class="todo-list" ng-class="{'todo-list--editing': $ctrl.isEditing()}">
-  <li ng-repeat="todo in $ctrl.todos track by $index">
-    <form
-      name="editTodoForm"
-      class="todo-list__item todo-list__item--animated-fadein"
-      ng-class="{'todo-list__item--editing': todo.editing}">
-      <input
-        ng-model="todo.title"
-        ng-keydown="$ctrl.saveAndBlur($event)"
-        ng-blur="$ctrl.endEditing(todo); $ctrl.beautify(todo)"
-        ng-disabled="todo.completed"
-        ng-focus="$ctrl.startEditing(todo)"
-        class="c-input c-input--animated-shadow c-input--animated-border-1" />
-      <!-- <input ng-click="$ctrl.toggleCompleted(todo)"
-        ng-checked="todo.completed"
-        type="checkbox"
-        class="c-input__check" /> -->
-      <div ng-click="$ctrl.removeTodo(todo)" class="c-input__remove"></div>
-    </form>
-  </li>
-</ul>
+  <ul class="todo-list">
+    <li ng-repeat="todo in $ctrl.todos track by $index">
+      <form
+        name="editTodoForm"
+        class="todo-list__item todo-list__item--animated-fadein"
+        ng-class="{'todo-list__item--editing': todo.editing}">
+        <input
+          ng-model="todo.title"
+          ng-keydown="$ctrl.saveAndBlur($event)"
+          ng-blur="$ctrl.endEditing(todo); $ctrl.beautify(todo)"
+          ng-disabled="todo.completed"
+          ng-focus="$ctrl.startEditing(todo)"
+          class="c-input c-input--animated-shadow c-input--animated-border-1" />
+        <!-- <input ng-click="$ctrl.toggleCompleted(todo)"
+          ng-checked="todo.completed"
+          type="checkbox"
+          class="c-input__check" /> -->
+        <div ng-click="$ctrl.removeTodo(todo)" class="c-input__remove"></div>
+      </form>
+    </li>
+  </ul>
+</div>

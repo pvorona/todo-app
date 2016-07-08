@@ -1,11 +1,11 @@
+.todo--editing {
+  .todo-list__item:not(.todo-list__item--editing), .new-todo {
+    opacity: .25;
+  }
+}
+
 .todo-list {
   margin-top: 50px;
-
-  &--editing {
-    .todo-list__item:not(.todo-list__item--editing) {
-      opacity: .25;
-    }
-  }
 
   &__item {
     position: relative;
