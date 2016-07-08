@@ -11,3 +11,4 @@ TODO:
 - reset text clear draft
 - extract animation durations, colors to variables
 - remove new-todo underline when editing todo-items
+- handle global keydown to input new todo
